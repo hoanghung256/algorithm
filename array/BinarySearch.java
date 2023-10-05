@@ -17,12 +17,12 @@ public class BinarySearch {
             else
                 high = mid - 1;
         }
-        return -1;
+        return low; // after the loop, low is the index that target must
     }
 
     public static void main(String[] args) {
         int[] a = { 1, 3, 4, 6, 8, 10 };
 
-        System.out.println(searchInsert(a, 6));
+        System.out.println(searchInsert(a, 8));
     }
 }
