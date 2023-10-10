@@ -1,0 +1,27 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Quiz {
+    public static Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+        public static void main(String[] args) {
+            try {
+                sc.nextLine();
+            } catch (InputMismatchException ex) {
+                System.out.println("The error is " + ex);
+                try {
+                    String input = sc.nextLine();
+                    int i = Integer.parseInt(input);
+                } catch (InputMismatchException e) {
+                    System.out.println("The error is " + e);
+                }
+            }
+        }
+    }
+}
+
+What is the output of the code?
+A. InputMismatchException
+B. InputMismatchException
+C. Both A&B
+D. None of the choices(answer)
