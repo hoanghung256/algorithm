@@ -51,9 +51,9 @@ public class RemoveElementByValue {
 
     public static void main(String[] args) {
         int[] a = {0, 1, 2, 2, 3, 0, 4, 2};
-        int[] b = {3, 2, 2, 3};
+        // int[] b = {3, 2, 2, 3};
 
-        System.out.println("Case 1 expected 2: " + removeElement(a, 3));
+        System.out.println("Case 1 expected 2: " + removeElement(a, 2));
 
         for (int i : a) {
             System.out.print(i + " ");
