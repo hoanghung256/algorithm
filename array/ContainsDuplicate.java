@@ -1,6 +1,6 @@
 package array;
 
-import java.util.Arrays;
+import java.util.HashSet;
 
 // Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
 
@@ -26,11 +26,13 @@ import java.util.Arrays;
 
 public class ContainsDuplicate {
     public static boolean containsDuplicate(int[] nums) {
-        Arrays.sort(nums);
-        for (int i = 0; i < nums.length-1; i++) {
-            if (nums[i] == nums[i+1]){
+        HashSet<Integer> check = new HashSet<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            if (check.contains(nums[i])) {
                 return true;
             }
+            check.add(nums[i]);
         }
         return false;
     }
