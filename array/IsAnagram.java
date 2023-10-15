@@ -17,7 +17,10 @@ import java.util.Arrays;
 // 1 <= s.length, t.length <= 5 * 104
 // s and t consist of lowercase English letters.
 
+//2 approach possible: Sorting approach and Hash table approach
+
 public class IsAnagram {
+    //Sorting approach
     public static boolean isAnagram(String s, String t) {
         char[] s_char = s.toCharArray();
         char[] t_char = t.toCharArray();
