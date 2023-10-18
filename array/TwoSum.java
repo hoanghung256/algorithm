@@ -1,5 +1,6 @@
 package array;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 // Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
@@ -27,10 +28,9 @@ import java.util.HashMap;
  
 // Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
 //2 nested for-loop is O(n^2)
-//Use hashmap is O(n)
 
 public class TwoSum {
-    public static int[] twoSum(int[] nums, int target) {
+    public static int[] twoSum1(int[] nums, int target) {  //Using HashMap approach => O(n)
         HashMap<Integer, Integer> myMap = new HashMap<>(); 
 
         int diff;
@@ -46,9 +46,9 @@ public class TwoSum {
     }
 
     public static void main(String[] args) {
-        int[] nums = {2,7,11,15};
-        twoSum(nums, 9);
-        for (int i : twoSum(nums, 9)) {
+        int[] nums = {2,132,7,8,19,11,15};
+        twoSum1(nums, 9);
+        for (int i : twoSum1(nums, 9)) {
             System.out.print(i + " ");
         }
     }
