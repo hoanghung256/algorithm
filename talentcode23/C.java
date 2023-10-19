@@ -9,6 +9,7 @@ public class C {
         for (int i = 0; i < 6; i++) {
             arr[i] = sc.nextInt();
         }
+        sc.close();
 
         double result;
     }
