@@ -24,13 +24,49 @@ package twopointer;
 // s consists only of printable ASCII characters.
 
 public class ValidPalindrome {
+    //Time complexity: O(n)
+    //Space complexity: O(1)
     public static boolean isPalindrome(String s) {
-        
+        int i = 0;
+        int j = s.length() - 1;
 
+        while (i < j) {
+            char a = s.charAt(i);
+            char b = s.charAt(j);
+            if (!Character.isLetterOrDigit(a)) {
+                i++;
+                continue;
+            }
+            if (!Character.isLetterOrDigit(b)) {
+                j--;
+                continue;
+            }
+            if (Character.toLowerCase(a) != Character.toLowerCase(b)) {
+                return false;
+            }
+            i++;
+            j--;
+        }
         return true;
     }
 
+    //Bad solution with O(n) space complexity because of using additional char array to store
+    // public static boolean isPalindrome(String s) {
+    //     char[] checkArr =  s.replaceAll("[^0-9a-zA-Z]", "").toLowerCase().toCharArray();
+    //     int i = 0;
+    //     int j = checkArr.length - 1;
+    //     while (i <= j) {
+    //         if (checkArr[i] != checkArr[j]) {
+    //             return false;
+    //         }
+    //         i++;
+    //         j--;
+    //     }
+    //     return true;
+    // }
+
     public static void main(String[] args) {
-        
+        System.out.println("Test case 1 (expected true): " + isPalindrome("A man, a plan, a canal: Panama"));
+        System.out.println("Test case 2 (expected false): " + isPalindrome("race a car"));
     }
 }
