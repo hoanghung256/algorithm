@@ -11,6 +11,6 @@ public class C {
         }
         sc.close();
 
-        double result;
+        // double result;
     }
 }
