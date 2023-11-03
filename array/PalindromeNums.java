@@ -31,6 +31,6 @@ public class PalindromeNums {
     public static void main(String[] args) {
         System.out.println("Test case 1: " + solution(1, 100));
         System.out.println("Test case 2: " + solution(100, 300));
-        System.out.println("Test case 3: " + solution(1, 500000));
+        System.out.println("Test case 3: " + solution(1, 10000));
     }
 }
