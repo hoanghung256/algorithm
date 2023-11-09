@@ -40,12 +40,13 @@ public class TwoSum {
             }
             myMap.put(nums[i], i);
         }
+        System.out.println(myMap);
 
         return new int[] {};
     }
 
     public static void main(String[] args) {
-        int[] nums = {2,132,7,8,19,11,15};
+        int[] nums = {2, 132, 8, 19, 7, 11, 15};
         twoSum1(nums, 9);
         for (int i : twoSum1(nums, 9)) {
             System.out.print(i + " ");

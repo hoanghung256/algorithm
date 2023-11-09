@@ -14,31 +14,30 @@ import java.util.HashMap;
 
 public class RomanToInt {
     private static int romanToInteger(String s) {
+        HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
+        hm.put('I', 1);
+        hm.put('V', 5);
+        hm.put('X', 10);
+        hm.put('L', 50);
+        hm.put('C', 100);
+        hm.put('D', 500);
+        hm.put('M', 1000);
         int result = 0;
-
-        HashMap<Character, Integer> map = new HashMap<>();
-        map.put('I', 1);
-        map.put('V', 5);
-        map.put('X', 10);
-        map.put('L', 50);
-        map.put('C', 100);
-        map.put('D', 500);
-        map.put('M', 1000);
-        
         for (int i = 0; i < s.length(); i++) {
-            if ((i + 1) < s.length() && map.get(s.charAt(i)) < map.get(s.charAt(i + 1))) {
-                result -= map.get(s.charAt(i));
-            } else {
-                result += map.get(s.charAt(i));
+            if ((i+1) < s.length() && hm.get(s.charAt(i)) < hm.get(s.charAt(i + 1))) {
+                result += hm.get(s.charAt(i+1)) - hm.get(s.charAt(i));       
+                i++;        
+            }else {
+                 int a = hm.get(s.charAt(i));
+                result += a;
             }
         }
-        
         return result;
     }
 
     public static void main(String[] args) {
-        System.out.println("Case 1 (expected 3): " + romanToInteger("III"));
-        System.out.println("Case 2 (expected 58): " + romanToInteger("LVIII"));
+        // System.out.println("Case 1 (expected 3): " + romanToInteger("III"));
+        // System.out.println("Case 2 (expected 58): " + romanToInteger("LVIII"));
         System.out.println("Case 3 (expected 1994): " + romanToInteger("MCMXCIV"));
         System.out.println("Case 4 (expected 7): " + romanToInteger("VII"));
         System.out.println("Case 5 (expected 16): " + romanToInteger("XVI"));

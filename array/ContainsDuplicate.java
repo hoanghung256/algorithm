@@ -26,15 +26,15 @@ import java.util.HashSet;
 
 public class ContainsDuplicate {
     public static boolean containsDuplicate(int[] nums) {
-        HashSet<Integer> check = new HashSet<>();
-
+        HashSet<Integer> hs = new HashSet<Integer>();
         for (int i = 0; i < nums.length; i++) {
-            if (check.contains(nums[i])) {
-                return true;
-            }
-            check.add(nums[i]);
-        }
-        return false;
+            if (hs.contains(nums[i])) {
+               return true;
+            } else {
+                hs.add(nums[i]);
+           }
+       } 
+       return false;
     }
 
     public static void main(String[] args) {
