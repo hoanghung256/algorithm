@@ -27,11 +27,7 @@ public class IsAnagram {
         Arrays.sort(s_char);
         Arrays.sort(t_char);
 
-        if (Arrays.equals(s_char, t_char)) {
-            return true;
-        }
-        
-        return false;
+        return Arrays.equals(s_char, t_char);
     }
 
     public static void main(String[] args) {
