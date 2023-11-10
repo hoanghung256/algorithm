@@ -48,6 +48,21 @@ public class FindTheDifference {
         return (char) (b - a);
     }
 
+    //Sorting approach
+    public static char findTheDifference2(String s, String t) {
+        char[] sChar = s.toCharArray();
+        char[] tChar = t.toCharArray();
+        Arrays.sort(sChar);
+        Arrays.sort(tChar);
+
+        for (int i = tChar.length-1; i >= 0; i--) {
+            if (tChar[i] != sChar[i-1]) {
+                return tChar[i];
+            }
+        }
+        return ' ';
+    }
+
     public static void main(String[] args) {
         System.out.println("Test case 1 (expected e): " + findTheDifference2("abcd", "abcde"));
         System.out.println("Test case 2 (expected e): " + findTheDifference2("adbc", "abecd"));
