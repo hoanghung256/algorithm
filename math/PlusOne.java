@@ -47,9 +47,6 @@ public class PlusOne {
     }
 
     public static void main(String[] args) {
-        // Arrays.stream(plusOne(generate())).forEach(i -> {
-        //     System.out.print(i);
-        // });
         String a = "123";
         String b = "103";
         System.out.println(a.charAt(0) + b.charAt(0));

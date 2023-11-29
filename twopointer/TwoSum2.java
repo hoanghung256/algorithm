@@ -32,7 +32,7 @@ import java.util.HashMap;
 
 public class TwoSum2 {
     //Two pointers approach -> TC: O(n) SC: O(1)
-    public static int[] twoSumII(int[] nums, int target) {      
+    public static int[] twoSumII1(int[] nums, int target) {      
         int left = 0;
         int right = nums.length - 1;
         int sum = 0;

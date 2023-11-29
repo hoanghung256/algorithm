@@ -36,8 +36,8 @@ public class RomanToInt {
     }
 
     public static void main(String[] args) {
-        // System.out.println("Case 1 (expected 3): " + romanToInteger("III"));
-        // System.out.println("Case 2 (expected 58): " + romanToInteger("LVIII"));
+        System.out.println("Case 1 (expected 3): " + romanToInteger("III"));
+        System.out.println("Case 2 (expected 58): " + romanToInteger("LVIII"));
         System.out.println("Case 3 (expected 1994): " + romanToInteger("MCMXCIV"));
         System.out.println("Case 4 (expected 7): " + romanToInteger("VII"));
         System.out.println("Case 5 (expected 16): " + romanToInteger("XVI"));

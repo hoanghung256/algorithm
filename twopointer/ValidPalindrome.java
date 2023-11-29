@@ -26,7 +26,7 @@ package twopointer;
 public class ValidPalindrome {
     //Time complexity: O(n)
     //Space complexity: O(1)
-    public static boolean isPalindrome(String s) {
+    public static boolean isPalindrome1(String s) {
         int i = 0;
         int j = s.length() - 1;
 
@@ -50,23 +50,25 @@ public class ValidPalindrome {
         return true;
     }
 
-    //Bad solution with O(n) space complexity because of using additional char array to store
-    // public static boolean isPalindrome(String s) {
-    //     char[] checkArr =  s.replaceAll("[^0-9a-zA-Z]", "").toLowerCase().toCharArray();
-    //     int i = 0;
-    //     int j = checkArr.length - 1;
-    //     while (i <= j) {
-    //         if (checkArr[i] != checkArr[j]) {
-    //             return false;
-    //         }
-    //         i++;
-    //         j--;
-    //     }
-    //     return true;
-    // }
+    //Remove all non-alphabet characters but worst performance because built-in function is slow 
+    //Time complexity: O(n)
+    //Space complexity: O(1)
+    public static boolean isPalindrome2(String s) {
+        String newS = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+        int i = 0;
+        int j = newS.length() - 1;
+        while (i <= j) {
+            if (newS.charAt(i) != newS.charAt(j)) {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
 
     public static void main(String[] args) {
-        System.out.println("Test case 1 (expected true): " + isPalindrome("A man, a plan, a canal: Panama"));
-        System.out.println("Test case 2 (expected false): " + isPalindrome("race a car"));
+        System.out.println("Test case 1 (expected true): " + isPalindrome1("A man, a plan, a canal: Panama"));
+        System.out.println("Test case 2 (expected false): " + isPalindrome1("race a car"));
     }
 }

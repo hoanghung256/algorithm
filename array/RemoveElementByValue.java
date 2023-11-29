@@ -41,19 +41,25 @@ public class RemoveElementByValue {
     public static int removeElement(int[] nums, int val) {
         int i = 0;
         int j = 0;
+
         while (i < nums.length) {
-            if (nums[i++] != val) {
-                nums[j++] = nums[i-1];
+            if (nums[i] != val) {
+                int temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
+                j++;
             }
+            i++;
         }
+        
         return j;
     }
 
     public static void main(String[] args) {
-        int[] a = {0, 1, 2, 2, 3, 0, 4, 2};
-        // int[] b = {3, 2, 2, 3};
+        int[] a = { 0, 1, 2, 2, 3, 0, 4, 2 };
+        int[] b = { 3, 2, 2, 3 };
 
-        System.out.println("Case 1 expected 2: " + removeElement(a, 2));
+        System.out.println("Case 2 expected 5: " + removeElement(a, 2));
 
         for (int i : a) {
             System.out.print(i + " ");
