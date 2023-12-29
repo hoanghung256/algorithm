@@ -11,25 +11,7 @@ public class RecursiveModularExponentiation {
         }
     }
 
-    public static int sum(int n) {
-        if (n == 1) {
-            return n;
-        } else {
-            return n + sum(n-1);
-        }
-    }
-
-    public static int sumOfOdds(int n) {
-        if (n == 1) {
-            return n;
-        } else {
-            return 2 * n - 1 + sumOfOdds(n - 1);
-        }
-    }
-
     public static void main(String[] args) {
         System.out.println("Test case 1: (expected 2) 3^11 mod 5 = " + findRecursiveModularExponentiation(3, 11, 5));
-        System.out.println("Sum from 1 to 7: " + sum(7));
-        System.out.println("Sum of odds: " + sumOfOdds(5));
     }
 }

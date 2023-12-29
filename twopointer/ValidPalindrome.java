@@ -24,33 +24,31 @@ package twopointer;
 // s consists only of printable ASCII characters.
 
 public class ValidPalindrome {
-    //Time complexity: O(n)
+    //Two Pointer approach 1: ignore non-letter or non-digit characters 
+    //Time complexity: O(n / 2)
     //Space complexity: O(1)
     public static boolean isPalindrome1(String s) {
         int i = 0;
         int j = s.length() - 1;
 
-        while (i < j) {
+        while (i <= j) {
             char a = s.charAt(i);
             char b = s.charAt(j);
             if (!Character.isLetterOrDigit(a)) {
                 i++;
-                continue;
-            }
-            if (!Character.isLetterOrDigit(b)) {
+            } else if (!Character.isLetterOrDigit(b)) {
                 j--;
-                continue;
-            }
-            if (Character.toLowerCase(a) != Character.toLowerCase(b)) {
+            } else if (Character.toLowerCase(a) != Character.toLowerCase(b)) {
                 return false;
+            } else {
+                i++;
+                j--;
             }
-            i++;
-            j--;
         }
         return true;
     }
 
-    //Remove all non-alphabet characters but worst performance because built-in function is slow 
+    //Two pointer approach 2: Remove all non-letter/non-digit characters but worst performance because built-in function is slow 
     //Time complexity: O(n)
     //Space complexity: O(1)
     public static boolean isPalindrome2(String s) {

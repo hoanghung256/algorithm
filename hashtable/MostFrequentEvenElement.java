@@ -27,34 +27,26 @@ import java.util.HashMap;
 // 0 <= nums[i] <= 105
 
 public class MostFrequentEvenElement {
+    //HashMap approach
     public static int mostFrequentEven(int[] nums) {
         HashMap<Integer, Integer> hm = new HashMap<>();
+        int result = -1;
 
-        for (int n : nums) {
-            if (n % 2 == 1) {
-                continue;
+        for (int num : nums) {
+            if (num % 2 == 0) {
+                int frequent = hm.getOrDefault(num, 0) + 1;
+                result = Math.max(result, frequent);
+                hm.put(num, frequent);
             }
-            hm.put(n, hm.getOrDefault(n, 0) + 1);
         }   
 
-        if (hm.size() == 0) return -1;
-
-        int maxFrequency = -1;
-        int result = -1;
-        for (int n : hm.keySet()) {
-            if (hm.get(n) > maxFrequency && result < n) {
-                maxFrequency = hm.get(n);
-                result = n;
-            }
-        }
-        
         return result;
     }
 
     public static void main(String[] args) {
-        // System.out.println("Testcase 1 (expected 2): " + mostFrequentEven(new int[] {0,1,2,2,4,4,1}));
-        // System.out.println("Testcase 2 (expected 4): " + mostFrequentEven(new int[] {4,4,4,9,2,4}));
-        // System.out.println("Testcase 3 (expected -1): " + mostFrequentEven(new int[] {29,47,21,41,13,37,25,7}));
+        System.out.println("Testcase 1 (expected 2): " + mostFrequentEven(new int[] {0,1,2,2,4,4,1}));
+        System.out.println("Testcase 2 (expected 4): " + mostFrequentEven(new int[] {4,4,4,9,2,4}));
+        System.out.println("Testcase 3 (expected -1): " + mostFrequentEven(new int[] {29,47,21,41,13,37,25,7}));
         System.out.println("Testcase 4 (expected 0): " + mostFrequentEven(new int[] {0,0,0,0}));
     }
 }

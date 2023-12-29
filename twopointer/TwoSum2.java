@@ -2,6 +2,7 @@ package twopointer;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.TimerTask;
 
 // Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index1] and numbers[index2] where 1 <= index1 < index2 < numbers.length.
 // Return the indices of the two numbers, index1 and index2, added by one as an integer array [index1, index2] of length 2.
@@ -33,20 +34,22 @@ import java.util.HashMap;
 public class TwoSum2 {
     //Two pointers approach -> TC: O(n) SC: O(1)
     public static int[] twoSumII1(int[] nums, int target) {      
-        int left = 0;
-        int right = nums.length - 1;
-        int sum = 0;
+        int i = 0;
+        int j = nums.length - 1;
 
-        while (left < right) {
-            sum = nums[left] + nums[right];
-            if (sum == target) {
-                return new int[] {left+1, right+1};
-            } else if (sum < target) {
-                left++;
+        while (i < j) {
+            int currentSum = nums[i] + nums[j]; 
+            if (currentSum == target) {
+                return new int[] {i + 1, j + 1};
+            } else if (currentSum < target) {
+                i++;
+                continue;
+            } else if (currentSum > target) {
+                j--;
                 continue;
             }
-            right--;
         }
+
         return new int[] {};
     }
 
@@ -58,7 +61,6 @@ public class TwoSum2 {
 
         for (int i = 0; i < nums.length; i++) {
             left = i + 1;
-            right = nums.length-1;
             while (left <= right) {
                 mid = left + (right-left)/2;
                 if (nums[mid] == target - nums[i]) {
@@ -93,18 +95,17 @@ public class TwoSum2 {
         int[] b = {1,2,3,4,5,6};
         int[] c = {-1,0};
 
-
-        int[] r1 = twoSumII3(a, 9);
+        int[] r1 = twoSumII2(a, 9);
         System.out.print("Test case 1 (expected {1,2}): ");
         Arrays.stream(r1).forEach(e -> System.out.print(e + " "));
         System.out.println();
 
-        int[] r2 = twoSumII3(b, 11);
+        int[] r2 = twoSumII2(b, 11);
         System.out.print("Test case 2 (expected {5,6}): ");
         Arrays.stream(r2).forEach(e -> System.out.print(e + " "));
         System.out.println();
 
-        int[] r3 = twoSumII3(c, -1);
+        int[] r3 = twoSumII2(c, -1);
         System.out.print("Test case 3 (expected {1,2}): ");
         Arrays.stream(r3).forEach(e -> System.out.print(e + " "));
     }

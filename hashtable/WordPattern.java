@@ -27,21 +27,23 @@ import java.util.Map;
 // All the words in s are separated by a single space.
 
 public class WordPattern {
+    //HashMap approach
     public static boolean wordPattern(String pattern, String s) {
-        String[] separate = s.split(" ");
-        HashMap<Character, String> hm = new HashMap<>();
+        String[] words = s.split(" ");
+        if (pattern.length() != words.length) return false;
 
-        for (int i = 0; i < separate.length; i++) {
+        Map<Character, String> hm = new HashMap<>();
+        for (int i = 0; i < pattern.length(); i++) {
             char c = pattern.charAt(i);
-            String word = separate[i];
-            if (hm.containsKey(c)) {
-                if (!hm.get(c).equals(word)) {
-                    return false;
-                }
-            } else if (hm.containsValue(word)) {
+            String word = words[i];
+
+            if (hm.containsKey(c) && !hm.get(c).equals(word)) {
                 return false;
+            } else if (!hm.containsKey(c) && hm.containsValue(word)) {
+               return false;
+            } else {
+                hm.put(c, word);
             }
-            hm.put(c, word);
         }
         return true;
     }

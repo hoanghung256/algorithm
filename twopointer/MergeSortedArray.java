@@ -3,7 +3,7 @@ package twopointer;
 import java.util.Arrays;
 
 public class MergeSortedArray {
-    // Two pointers technic with built-in function Arrays.sort()
+    // Two pointers approach 1 with built-in function Arrays.sort()
     // Merge first then sort with Arrays.sort()
     public static void merge1(int[] nums1, int m, int[] nums2, int n) {
         int i = 0;
@@ -20,7 +20,7 @@ public class MergeSortedArray {
         Arrays.sort(nums1);
     }
 
-    // Two pointers technic, merge and sort in 1 loop
+    // Two pointers approach: Merge and sort in 1 loop
     public static void merge2(int[] nums1, int m, int[] nums2, int n) {
         int i = 0;
         int j = 0;
