@@ -54,32 +54,25 @@ import java.util.Stack;
 public class BaseballGame {
     public static int calPoints(String[] operations) {
         Stack<Integer> myStack =  new Stack<>();
+        int sum = 0;
+
         for (String s : operations) {
             if (!myStack.isEmpty()) {
                 if (s.equals("C")) {
-                    myStack.pop();
+                    sum -= myStack.pop();
                 } else if (s.equals("D")) {
-                    myStack.push(myStack.peek() * 2);
+                    sum += myStack.push(myStack.peek() * 2);
                 } else if (s.equals("+")) {
                     int a = myStack.pop();
                     int b = myStack.peek();
                     myStack.push(a);
-                    myStack.push(a + b);
+                    sum += myStack.push(a + b);
                 } else {
-                    myStack.push(Integer.parseInt(s));
+                    sum += myStack.push(Integer.parseInt(s));
                 }
                 continue;
             }
-            myStack.push(Integer.parseInt(s)); 
-        }
-
-        return sum(myStack);
-    }
-
-    private static int sum(Stack<Integer> st) {
-        int sum = 0;
-        while (!st.isEmpty()) {
-            sum += st.pop();
+            sum += myStack.push(Integer.parseInt(s)); 
         }
 
         return sum;
