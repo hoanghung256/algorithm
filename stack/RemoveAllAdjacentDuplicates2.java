@@ -24,10 +24,38 @@ package stack;
 // Constraints:
 // 1 <= s.length <= 105
 // 2 <= k <= 104
-// s only contains lowercase English letters.
+// s only contains lowercase English letters.1
 
 public class RemoveAllAdjacentDuplicates2 {
-    public String removeDuplicates(String s, int k) {
-        
+    // Stack approach: use StringBuilder as Stack combine to mark array
+    public static String removeDuplicates1(String s, int k) {
+        int[] mark = new int[s.length()];
+        StringBuilder sb = new StringBuilder();
+
+        for (char c : s.toCharArray()) {
+            sb.append(c);
+            int last = sb.length() - 1;
+
+            if (last > 0 && sb.charAt(last) == sb.charAt(last - 1)) {
+                mark[last] = 1 + mark[last - 1];
+            } else {
+                mark[last] = 1;
+            }
+
+            if (mark[last] >= k) {
+                sb.delete(sb.length() - k, sb.length());
+            }
+        }
+
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Test case expected abcd: " + removeDuplicates1("abcd", 2));
+        System.out.println("Test case expected aa: " + removeDuplicates1("deeedbbcccbdaa", 3));
+        System.out.println("Test case expected ps: " + removeDuplicates1("pbbcggttciiippooaais", 2));
+        System.out.println("Test case expected abd: " + removeDuplicates1("abccccd", 2));
+        System.out.println(
+                "Test case expected ybth: " + removeDuplicates1("yfttttfbbbbnnnnffbgffffgbbbbgssssgthyyyy", 4));
     }
 }
