@@ -34,16 +34,16 @@ public class RemoveAllAdjacentDuplicates2 {
 
         for (char c : s.toCharArray()) {
             sb.append(c);
-            int last = sb.length() - 1;
+            int last = sb.length()-1;
 
-            if (last > 0 && sb.charAt(last) == sb.charAt(last - 1)) {
-                mark[last] = 1 + mark[last - 1];
+            if (last > 0 && sb.charAt(last) == sb.charAt(last-1)) {
+                mark[last] = 1 + mark[last-1];
             } else {
                 mark[last] = 1;
             }
 
-            if (mark[last] >= k) {
-                sb.delete(sb.length() - k, sb.length());
+            if (mark[last] == k) {
+                sb.delete(sb.length()-k, sb.length());
             }
         }
 
