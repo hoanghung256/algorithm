@@ -21,6 +21,9 @@ public class ListNode {
     }
 
     public static ListNode createNewListNode(int... values) {
+        if (values.length == 1) {
+            return new ListNode(values[0]);
+        }
         ListNode current = new ListNode(values[1]);
         ListNode head = new ListNode(values[0], current);
 
