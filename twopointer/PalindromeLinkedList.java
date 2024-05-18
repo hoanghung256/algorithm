@@ -1,7 +1,5 @@
 package twopointer;
 
-import java.util.ArrayList;
-
 import utils.ListNode;
 
 /**
