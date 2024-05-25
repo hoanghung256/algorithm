@@ -1,7 +1,6 @@
 package stack;
 
 import java.util.HashMap;
-import java.util.HashSet;
 
 /**
  * The next greater element of some element x in an array is the first greater
