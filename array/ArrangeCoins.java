@@ -22,7 +22,7 @@ package array;
  */
 
 public class ArrangeCoins {
-    public static int arrangeCoins(int n) {
+    public static int arrangeCoins1(int n) {
         int completeRow = 0;
         int totalCoin = n;
 
@@ -38,10 +38,23 @@ public class ArrangeCoins {
         return completeRow;
     }
 
+    public static int arrangeCoins2(int n) {
+        long completeArrangeCoins = 0;
+
+        for (int i = 1; i <= n; i++) {
+            completeArrangeCoins += i;
+
+            if (completeArrangeCoins > n) {
+                return i-1;
+            }
+        }
+        return 0;
+    }
+
     public static void main(String[] args) {
-        System.out.println("Testcase 1 (expected 2): " + arrangeCoins(5));
-        System.out.println("Testcase 2 (expected 3): " + arrangeCoins(8));
-        System.out.println("Testcase 3 (expected 2): " + arrangeCoins(13));
+        System.out.println("Testcase 1 (expected 2): " + arrangeCoins2(5));
+        System.out.println("Testcase 2 (expected 3): " + arrangeCoins2(8));
+        System.out.println("Testcase 3 (expected 4): " + arrangeCoins2(13));
         // System.out.println("Testcase 1 (expected 2): " + arrangeCoins(5));
         // System.out.println("Testcase 1 (expected 2): " + arrangeCoins(5));
     }
