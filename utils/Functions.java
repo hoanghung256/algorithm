@@ -18,6 +18,7 @@ public class Functions {
         return result.toString();
     }
 
-    public void testB() {
+    public void testB() {}
+    public void A() {
     }
 }
