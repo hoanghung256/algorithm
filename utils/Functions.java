@@ -17,4 +17,7 @@ public class Functions {
 
         return result.toString();
     }
+
+    public void A() {
+    }
 }
